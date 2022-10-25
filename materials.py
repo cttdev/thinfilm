@@ -32,7 +32,11 @@ class Material:
         """
         if isinstance(n, float):
             # Constant index of refraction
-            self.n = lambda wavelength: np.full(len(wavelength), n) if isinstance(wavelength, list) or isinstance(wavelength, np.ndarray) else n
+            self.n = (
+                lambda wavelength: np.full(len(wavelength), n)
+                if isinstance(wavelength, list) or isinstance(wavelength, np.ndarray)
+                else n
+            )
         elif os.path.isfile(n):
             # If a file is given, try to load the material and generate an interpolator
             data = pandas.read_csv(n, sep=self.FileFormat.SEPERATOR.value)
@@ -44,7 +48,11 @@ class Material:
 
         if isinstance(k, float):
             # Constant extinction coefficient
-            self.k = lambda wavelength: np.full(len(wavelength), k) if isinstance(wavelength, list) or isinstance(wavelength, np.ndarray) else k
+            self.k = (
+                lambda wavelength: np.full(len(wavelength), k)
+                if isinstance(wavelength, list) or isinstance(wavelength, np.ndarray)
+                else k
+            )
         elif os.path.isfile(k):
             # If a file is given, try to load the material and generate an interpolator
             data = pandas.read_csv(k, sep=self.FileFormat.SEPERATOR.value)
