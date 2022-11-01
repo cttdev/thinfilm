@@ -81,12 +81,12 @@ def plot_rectangles_from_queue(queue, event):
         try:
             rectangle = queue.get(block=False)
             ax.add_patch(rectangle)
-            ax.autoscale_view()
             print("Plotting... Rectangles Left:", queue.qsize())
             queue.task_done()
         except Empty:
             pass
 
+    ax.autoscale_view()
     plt.show()
 
 

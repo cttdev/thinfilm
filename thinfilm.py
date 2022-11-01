@@ -153,5 +153,9 @@ if __name__ == "__main__":
     # Plot reflectance
     import matplotlib.pyplot as plt
 
+    plt.title("Reflectance vs. Wavelength of 84nm Si3N4 film on Si Substrate")
+    plt.xlabel("Wavelength (nm)")
+    plt.ylabel("Reflectance")
+
     plt.plot(wavelengths, R)
     plt.show()
